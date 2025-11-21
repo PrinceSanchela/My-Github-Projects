@@ -1,8 +1,3 @@
-/* panda_guess_fixed.c
-   Cross-platform Guess-the-Number with PANDA intro + robust I/O handling.
-   Fix: Linux input handled via select() + raw terminal (no O_NONBLOCK).
-   Works on Windows and Linux/macOS.
-*/
 
 #include <stdio.h>
 #include <stdlib.h>
