@@ -454,6 +454,10 @@ int main(void)
             printf("No record yet.\n");
         }
 
+#ifndef _WIN32
+        restore_terminal(); // restore normal blocking input
+#endif
+
         printf("\nSelect difficulty:\n");
         printf(" 1) Easy  (1-50 , 30s)\n");
         printf(" 2) Normal(1-100, 20s)\n");
@@ -461,9 +465,15 @@ int main(void)
         printf("Choose [1-3]: ");
 
         int diff = 2;
-        int c = getchar();
-        if (c >= '1' && c <= '3')
-            diff = c - '0';
+        // int c = getchar();
+        int c;
+        scanf("%d", &c);
+
+#ifndef _WIN32
+        configure_terminal_nb(); // enable nonblocking again for gameplay
+#endif
+        if (c >= 1 && c <= 3)
+            diff = c - 0;
         while (getchar() != '\n')
             ;
 
@@ -503,7 +513,7 @@ int main(void)
         }
         char yn;
         printf("\nAre You want to Play Again Game [Yes = y and No = n]: ");
-        scanf(" %c",&yn);
+        scanf(" %c", &yn);
         per = (yn == 'y');
     }
 
