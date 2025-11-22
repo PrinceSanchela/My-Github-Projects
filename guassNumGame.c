@@ -376,8 +376,6 @@ int main(void){
     enableAnsiOnWindows();
 #else
     save_orig_terminal:
-    save_orig_terminal: ; /* placeholder */
-    save_orig_terminal: /* we will call save_orig_terminal below */ ;
     save_orig_terminal();
     atexit(restore_terminal);
 #endif
