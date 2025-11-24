@@ -396,7 +396,7 @@ int main(void){
         if (best > 0) printf("Fastest solve: %d s (stored in %s)\n", best, RECORD_FILE);
         else printf("No record yet.\n");
 
-        printf("\nSelect difficulty:\n 1) Easy  (1-50 , 30s)\n 2) Normal(1-100, 20s)\n 3) Hard  (1-200, 12s)\nChoose [1-3]: ");
+        printf("\nSelect difficulty:\n 1) Easy  (1-50 , 40s)\n 2) Normal(1-100, 30s)\n 3) Hard  (1-200, 15s)\nChoose [1-3]: ");
         int choice = 2;
         if (scanf("%d", &choice) != 1){
             int ch;
@@ -407,10 +407,12 @@ int main(void){
             while ((ch = getchar()) != '\n' && ch != EOF);
         }
 
-        int maxnum = 100, tlim = 20;
-        if (choice == 1){ maxnum = 50; tlim = 30; }
-        else if (choice == 3){ maxnum = 200; tlim = 12; }
-        else { maxnum = 100; tlim = 20; }
+        int maxnum = 100, tlim = 30;
+        if (choice == 1){ maxnum = 50; tlim = 40; }
+        else if (choice == 3){ maxnum = 200; tlim = 20; }
+        else { 
+            printf("\n You are Choosing By default Mode . ");
+            maxnum = 100; tlim = 30; }
 
         printf("\nYou have %d seconds to guess a number between 1 and %d.\n", tlim, maxnum);
         printf("Press Enter to start...");
